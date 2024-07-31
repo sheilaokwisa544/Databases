@@ -1,0 +1,39 @@
+{% extends 'inner-page.html' %}
+{% load static %}
+
+{% block body %}
+    <br><br><br><br><br>
+    <table class="table ms-5 me-5 table-hover mt-5 table-striped-columns shad" style="width: 90%">
+     <tr class="table-success p-3 ">
+         <th>name</th>
+         <th>email</th>
+         <th>phone</th>
+         <th>date</th>
+         <th>department</th>
+         <th>doctor</th>
+         <th>message</th>
+         <th>action</th>
+     </tr>
+    
+    {% for x in appointments %}
+        <tr class="table-warning p-3">
+            <td>{{ x.name }}</td>
+            <td>{{ x.email  }}</td>
+            <td>{{ x.phone }}</td>
+            <td>{{ x.doctor }}</td>
+            <td>{{  x.date}}</td>
+            <td>{{ x.department }}</td>
+            <td>{{ x.message }}</td>
+            <td>
+                <a href="/edit/{{ x.id }}" class="btn btn-warning">EDIT</a>
+                <a href="/delete/{{ x.id }}" class="btn btn-danger">DELETE</a>
+                <a href="{% url 'pay' %}" class="btn btn-info btn-outline-primary">PAY</a>
+            </td>
+        </tr>
+    	
+    {% endfor %}
+    
+    
+    </table>
+
+{% endblock %}

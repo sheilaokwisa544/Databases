@@ -1,0 +1,33 @@
+{% extends 'inner-page.html' %}t %}
+{% load static %}
+{% block body %}
+    <br><br><br><br><br><br>
+    <table class="table">
+        <tr>
+            <th>name</th>
+            <th>email</th>
+            <th>age</th>
+            <th>contact</th>
+            <th>action</th>
+        </tr>
+
+    {% for y in patients  %}
+        <tr>
+            <td>{{ y.name }}</td>
+            <td>{{ y.email }}</td>
+            <td>{{ y.age }}</td>
+            <td>{{ y.contact }}</td>
+             <td>
+                 <a href="" class="btn btn-danger">EDIT</a>
+                 <a href="/Delete/{{ y.id }}" class="btn btn-outline-success">DELETE</a>
+             </td>
+        </tr>
+
+    {% endfor %}
+
+
+
+
+  </table>
+	
+{% endblock %}
